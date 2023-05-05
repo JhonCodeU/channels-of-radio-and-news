@@ -1,0 +1,45 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#app {
+  background: #e3f6f5;
+  width: 90rem;
+  padding: 3rem;
+  text-align: center;
+}
+
+h1 {
+  color: #57636e;
+  font-size: 3rem;
+  padding: 2px 0;
+}
+
+.button {
+  background: #34a3a3;
+  color: #fff;
+  width: 250px;
+  font-size: 20px;
+  border: radius 0.3em;
+  padding: 10px 20px;
+  margin: 10px 40px 10px;
+  outline: 0;
+}
+
+.button:hover {
+  cursor: pointer;
+  background: #57636e;
+}
+
+#info {
+  font-size: 20px;
+}
