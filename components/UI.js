@@ -1,5 +1,6 @@
 import { getAllData } from "../controller/channel.controller.js";
 import * as Hls from '../library/hls.min.js';
+import { Alert, AlertInfo } from './Alert.js';
 
 async function renderCard () {
   const container = document.getElementById("container");
@@ -73,7 +74,6 @@ async function renderCard () {
 }
 
 function playerVideo (url) {
-  alert("Reproduciendo...");
   // Crear una instancia de Hls
   const video = document.createElement("video");
   const videoSrc = url;
@@ -94,12 +94,12 @@ function playerVideo (url) {
     } catch (error) {
       // si error contiene Hls.isSupported entonces falta instalar la extensión
       if (error.toString().includes("Hls.isSupported")) {
-        alert("Instalar extensión");
-        window.open("https://chrome.google.com/webstore/detail/native-hls-playback/emnphkkblegpebimobpbekeedfgemhof");
+        AlertInfo('<strong>No se puede reproducir</strong>', 'info', 'Desde la tienda de chrome puedes <a href="https://chrome.google.com/webstore/detail/native-hls-playback/emnphkkblegpebimobpbekeedfgemhof//sweetalert2.github.io">Instalar la extension</a> para poder reproducir este servicio');
+        console.log(error);
       }
     }
   } else {
-    alert("Este navegador no es compatible");
+    Alert('error', 'Oops...', 'Este navegador no es compatible con HLS', '<a href="">Puedes usar un navegador basado en Chromium?</a>');
   }
 }
 
