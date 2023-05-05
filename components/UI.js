@@ -99,7 +99,7 @@ function playerVideo (url) {
       }
     }
   } else {
-    Alert('error', 'Oops...', 'Este navegador no es compatible con HLS', '<a href="">Puedes usar un navegador basado en Chromium?</a>');
+    Alert('error', 'Oops...', 'Este navegador no es compatible con HLS', '<a href="https://www.google.com/intl/es-419/chrome/">Puedes usar un navegador basado en Chromium?</a>');
   }
 }
 
