@@ -1,10 +1,8 @@
-import { getAllData } from "../controller/channel.controller.js";
 import * as Hls from '../library/hls.min.js';
 import { Alert, AlertInfo } from './Alert.js';
 
-async function renderCard () {
-  const container = document.getElementById("container");
-  const data = await getAllData();
+async function renderCard (data) {
+  const container = document.getElementById("card-container");
   const row = document.createElement("div");
   row.className = "row";
   container.appendChild(row);
@@ -47,6 +45,11 @@ async function renderCard () {
 
     description.className = "card-text";
 
+    // Crear un elemento categoría y asignarle la categoría del objeto
+    const category = document.createElement("p");
+    category.innerHTML = item.Category;
+    category.className = "card-text text-success";
+
     // Crear un elemento botón y asignarle la URL del objeto
     const button = document.createElement("a");
     button.href = item.URL;
@@ -62,6 +65,7 @@ async function renderCard () {
     cardBody.appendChild(poster);
     cardBody.appendChild(title);
     cardBody.appendChild(description);
+    cardBody.appendChild(category);
     cardBody.appendChild(button);
 
     // Agregar el cuerpo de la tarjeta y la imagen de fondo a la tarjeta
@@ -72,6 +76,7 @@ async function renderCard () {
     col.appendChild(card);
   });
 }
+
 
 function playerVideo (url) {
   // Crear una instancia de Hls
