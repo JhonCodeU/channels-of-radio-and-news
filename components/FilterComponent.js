@@ -47,6 +47,9 @@ const filterSelect = (data) => {
 
     // Renderizar las tarjetas filtradas en el contenedor
     renderCard(filteredData, containerEl);
+
+    // Almacenar la categoría seleccionada
+    localStorage.setItem("category", category);
   });
 
   // Obtener el contenedor para el select y el título
@@ -56,4 +59,58 @@ const filterSelect = (data) => {
   containerEl.appendChild(row);
 };
 
-export { filterSelect };
+// Función que crea el input y lo filtra según el texto ingresado
+const filterSearch = (data) => {
+  // Crear un elemento div para el input y el título
+  const row = document.createElement("div");
+  row.className = "row my-3";
+  const titleCol = document.createElement("div");
+  titleCol.className = "col-md-4";
+  const inputCol = document.createElement("div");
+  inputCol.className = "col-md-8";
+  row.appendChild(titleCol);
+  row.appendChild(inputCol);
+
+  // Crear un elemento título para el input
+  const title = document.createElement("h5");
+  title.innerHTML = "Buscar:";
+  titleCol.appendChild(title);
+
+  // Crear un elemento input
+  const inputEl = document.createElement("input");
+  inputEl.className = "form-control";
+  inputEl.placeholder = "Escribe el nombre del canal";
+  inputCol.appendChild(inputEl);
+
+  // Agregar evento de cambio al input
+  inputEl.addEventListener("input", async (event) => {
+    const name = event.target.value.toLowerCase();
+    let filteredData = data;
+    console.log(data);
+
+    // Filtrar los datos según el texto ingresado
+    if (name !== "") {
+      filteredData = data.filter((channel) => channel.Title.toLowerCase().includes(name));
+    }
+
+    // Obtener el contenedor y vaciarlo
+    const containerEl = document.getElementById("card-container");
+    containerEl.innerHTML = "";
+
+    // Renderizar las tarjetas filtradas en el contenedor
+    renderCard(filteredData, containerEl);
+
+    // Almacenar el texto ingresado
+    localStorage.setItem("name", name);
+
+  });
+
+  // Obtener el contenedor para el input y el título
+  const containerEl = document.getElementById("filters");
+
+  // Agregar la fila al contenedor
+  containerEl.appendChild(row);
+};
+
+
+export { filterSelect, filterSearch };
