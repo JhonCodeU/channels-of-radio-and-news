@@ -30,6 +30,6 @@ Para utilizar el proyecto, sigue los siguientes pasos:
 
 ## imagenes
 ![Screenshot from 2023-05-05 20-20-56](https://user-images.githubusercontent.com/57459718/236590693-be9462c4-4f68-4c75-807c-5727662f7ae1.png)
-HLS PLAYER
+### HLS PLAYER
 ![Screenshot from 2023-05-05 20-21-12](https://user-images.githubusercontent.com/57459718/236590703-8a88050f-b171-49fa-a6a2-8a1a37b64dfc.png)
 
